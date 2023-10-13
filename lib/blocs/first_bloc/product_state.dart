@@ -6,6 +6,9 @@ abstract class ProductState extends Equatable {
   @override
   List<Object> get props => [];
 }
+class ProductInitialState extends ProductState {
+
+}
 
 class ProductLoadingState extends ProductState {
 
@@ -21,7 +24,6 @@ class ProductLoadedState extends ProductState {
 }
 class ProductErrorState extends ProductState {
   final String errorMsg;
-
   const ProductErrorState(this.errorMsg);
 
   @override
