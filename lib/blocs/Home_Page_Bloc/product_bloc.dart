@@ -10,15 +10,15 @@ part 'product_event.dart';
 part 'product_state.dart';
 
 class ProductBloc extends Bloc<ProductEvent, ProductState> {
-  FetchApi fetchApi;
+  final FetchApiRepo fetchApiRepo;
 
-  ProductBloc({required this.fetchApi}) : super(ProductInitialState()) {
+  ProductBloc({required this.fetchApiRepo}) : super(ProductInitialState()) {
     on<ProductLoadedEvent>((event, emit) async{
       emit(ProductInitialState());
 
       emit(ProductLoadingState());
       try{
-        var data= await fetchApi.fetchData('');
+        var data= await fetchApiRepo.fetchData();
           emit(ProductLoadedState(data));
       }catch(e){
         emit(ProductErrorState(e.toString()));

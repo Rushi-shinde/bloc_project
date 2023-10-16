@@ -1,6 +1,7 @@
-import 'package:bloc_project/blocs/first_bloc/product_bloc.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+
+import '../blocs/Home_Page_Bloc/product_bloc.dart';
 
 
 class HomePage extends StatelessWidget {
@@ -119,7 +120,7 @@ class HomePage extends StatelessWidget {
                   }
 
                   if (state is ProductErrorState) {
-                    return Text(state.errorMsg);
+                    return Center(child: Text(state.errorMsg));
                   }
 
                   return const SizedBox();

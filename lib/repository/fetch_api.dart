@@ -1,9 +1,9 @@
 import 'package:bloc_project/models/product_model.dart';
 import 'package:http/http.dart' as http;
 
-class FetchApi {
+class FetchApiRepo {
 
-  Future<dynamic> fetchData(String endpoint) async {
+  Future<List<ProductsModel>> fetchData() async {
     final response = await http.get(Uri.parse("https://fakestoreapi.com/products/"));
 
     if (response.statusCode == 200) {
